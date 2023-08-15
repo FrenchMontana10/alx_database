@@ -1,0 +1,1 @@
+Welcome to ALX Databases in SQL.
