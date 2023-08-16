@@ -1,4 +1,4 @@
--- Create the database if it doesn't exist
+-- Create the database hbtn_0d_usa if it doesn't exist
 CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
 
 -- Use the database
@@ -12,12 +12,9 @@ CREATE TABLE IF NOT EXISTS cities (
     FOREIGN KEY (state_id) REFERENCES states(id)
 );
 
--- Insert data into the cities table
-INSERT INTO cities (state_id, name) VALUES (1, "San Francisco");
-
--- Select data from the cities table
-SELECT * FROM cities;
+-- Insert data into the cities table if it doesn't exist
+INSERT IGNORE INTO cities (state_id, name) VALUES (1, "San Francisco");
 
 -- Attempt to insert data that violates the foreign key constraint
 -- This will result in an error
--- INSERT INTO cities (state_id, name) VALUES (10, "Paris");
+INSERT IGNORE INTO cities (state_id, name) VALUES (10, "Paris");
